@@ -1,8 +1,8 @@
 header {
-  @apply flex pt-3 pb-3 pl-5 pr-5;
+  @apply flex py-3 px-5;
 
   background: rgb(var(--background-rgb));
-  height: 10vh;
+  height: var(--header-height);
   .logo_area {
     flex: 0.3;
 

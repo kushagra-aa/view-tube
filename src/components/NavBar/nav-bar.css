@@ -1,0 +1,30 @@
+nav {
+  @apply flex flex-col gap-3 px-3;
+
+  width: var(--nav-width);
+  height: inherit;
+
+  span {
+    @apply mt-1 pt-1 px-1;
+
+    border-top: 1px solid rgba(var(--foreground-rgb), 0.1);
+  }
+
+  .nav_item {
+    --active-bg: rgba(var(--foreground-rgb), 0.2);
+
+    @apply flex gap-4 px-2 py-1 rounded-md;
+
+    width: calc(var(--nav-width) - 2.25rem);
+
+    &:is(:hover, :focus-visible) {
+      outline: none;
+      border: none;
+      background: var(--active-bg);
+    }
+
+    &.active {
+      background: var(--active-bg);
+    }
+  }
+}
