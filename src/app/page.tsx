@@ -1,13 +1,26 @@
 import VideoCard from "@/components/VideoCard/VideoCard";
 import styles from "./page.module.css";
+import { VideoType } from "@/models/VideoType";
+import { makeAPIRequest } from "@/lib/useAPI";
 
-export default function Home() {
+type DataType = { items: VideoType[] };
+
+const getVideos = async () => {
+  const data: DataType = await makeAPIRequest("/search", { q: "" }).then(
+    (resp: unknown) => resp as DataType
+  );
+  return data.items;
+};
+
+export default async function Home() {
+  const videos: VideoType[] = await getVideos().then((d) => {
+    return d;
+  });
   return (
-    <main className="py-2 px-8 flex gap-x-4 gap-y-14 flex-wrap justify-between items-start">
-      <VideoCard size="small" />
-      <VideoCard size="small" />
-      <VideoCard size="small" />
-      <VideoCard size="small" />
+    <main className={styles.main}>
+      {videos?.map((v) => (
+        <VideoCard key={v.id.videoId} size="big" video={v} />
+      ))}
     </main>
   );
 }

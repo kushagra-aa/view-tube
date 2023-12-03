@@ -12,6 +12,10 @@
     height: var(--thumbnail_height);
     width: var(--thumbnail_width);
 
+    img {
+      object-fit: cover;
+    }
+
     span.ago {
       @apply absolute rounded-lg;
 

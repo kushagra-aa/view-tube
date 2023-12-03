@@ -7,4 +7,4 @@ export const formatDate = (dateTimeString: string) =>
   moment(dateTimeString).format("YYYY-MM-DD");
 
 export const formatTime = (dateTimeString: string) =>
-  moment(dateTimeString).format("HH:mm");
+  moment(dateTimeString).format("hh:mm A");
