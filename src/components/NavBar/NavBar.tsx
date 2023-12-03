@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import {
   BagIcon,
@@ -10,11 +11,12 @@ import {
   MusicIcon,
 } from "../Icons";
 import "./nav-bar.css";
+import { usePathname } from "next/navigation";
 
 const homeItem = {
   name: "Home",
   icon: <HomeIcon />,
-  route: "",
+  route: "/",
 };
 const exploreItems = [
   {
@@ -71,13 +73,14 @@ const categoryItems = [
 ];
 
 function NavBar() {
+  const pathname = usePathname();
   return (
     <nav>
       <Link
         href={homeItem.route}
         key={homeItem.name}
         title={homeItem.name}
-        className="nav_item"
+        className={`nav_item ${pathname === homeItem.route ? "active" : ""}`}
       >
         {homeItem.icon}
         {homeItem.name}
@@ -88,7 +91,7 @@ function NavBar() {
           href={item.route}
           key={item.name}
           title={item.name}
-          className="nav_item"
+          className={`nav_item ${pathname === item.route ? "active" : ""}`}
         >
           {item.icon}
           {item.name}
@@ -100,7 +103,7 @@ function NavBar() {
           href={item.route}
           key={item.name}
           title={item.name}
-          className="nav_item"
+          className={`nav_item ${pathname === item.route ? "active" : ""}`}
         >
           {i % 2 !== 0 ? <CodeBoxedIcon /> : <CodeIcon />}
           {item.name}
