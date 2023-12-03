@@ -11,7 +11,8 @@ import {
   MusicIcon,
 } from "../Icons";
 import "./nav-bar.css";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
+import useURLSearchParams from "@/hooks/useURLSearchParams";
 
 const homeItem = {
   name: "Home",
@@ -22,58 +23,59 @@ const exploreItems = [
   {
     name: "Trending",
     icon: <FireIcon />,
-    route: "",
+    route: "Trending",
   },
   {
     name: "Shopping",
     icon: <BagIcon />,
-    route: "",
+    route: "Shopping",
   },
   {
     name: "Music",
     icon: <MusicIcon />,
-    route: "",
+    route: "Music",
   },
   {
     name: "Gaming",
     icon: <GamingIcon />,
-    route: "",
+    route: "Gaming",
   },
   {
     name: "Coding",
     icon: <CodingIcon />,
-    route: "",
+    route: "Coding",
   },
 ];
 const categoryItems = [
   {
     name: "NextJS",
-    route: "",
+    route: "NextJS",
   },
   {
     name: "ReactJS",
-    route: "",
+    route: "ReactJS",
   },
   {
     name: "JavaScript",
-    route: "",
+    route: "JavaScript",
   },
   {
     name: "TypeScript",
-    route: "",
+    route: "TypeScript",
   },
   {
     name: "TailwindCSS",
-    route: "",
+    route: "TailwindCSS",
   },
   {
     name: "CSS",
-    route: "",
+    route: "CSS",
   },
 ];
 
 function NavBar() {
   const pathname = usePathname();
+  const [searchParams] = useURLSearchParams();
   return (
     <nav>
       <Link
@@ -88,10 +90,12 @@ function NavBar() {
       <span>Explore</span>
       {exploreItems.map((item) => (
         <Link
-          href={item.route}
+          href={`/results?search=${item.route}`}
           key={item.name}
           title={item.name}
-          className={`nav_item ${pathname === item.route ? "active" : ""}`}
+          className={`nav_item ${
+            searchParams.search === item.route ? "active" : ""
+          }`}
         >
           {item.icon}
           {item.name}
@@ -100,10 +104,12 @@ function NavBar() {
       <span>Categories</span>
       {categoryItems.map((item, i) => (
         <Link
-          href={item.route}
+          href={`/results?search=${item.route}`}
           key={item.name}
           title={item.name}
-          className={`nav_item ${pathname === item.route ? "active" : ""}`}
+          className={`nav_item ${
+            searchParams.search === item.route ? "active" : ""
+          }`}
         >
           {i % 2 !== 0 ? <CodeBoxedIcon /> : <CodeIcon />}
           {item.name}
