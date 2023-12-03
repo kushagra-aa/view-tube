@@ -1,6 +1,7 @@
 .video_card {
   --card_width: 18rem;
   --thumbnail_height: 9rem;
+  --thumbnail_width: var(--card_width);
 
   width: var(--card_width);
 
@@ -9,7 +10,7 @@
 
     isolation: isolate;
     height: var(--thumbnail_height);
-    width: var(--card_width);
+    width: var(--thumbnail_width);
 
     span.ago {
       @apply absolute rounded-lg;
@@ -47,6 +48,26 @@
     }
   }
 
-  &.big_video_card {
+  &.small_video_card {
+    --card_width: 20rem;
+    --thumbnail_height: 5.5rem;
+    --thumbnail_width: 10rem;
+
+    @apply grid gap-x-2 items-center;
+
+    grid-template-columns: var(--thumbnail_width) auto;
+    grid-template-rows: 1fr 0.5fr 0.5fr;
+
+    .video_tumbnail {
+      grid-row: 1/4;
+    }
+    p {
+      width: calc(var(--card_width) - var(--thumbnail_width));
+      -webkit-line-clamp: 2;
+      font-size: 0.85rem;
+      &.video_channel {
+        font-size: 0.7rem;
+      }
+    }
   }
 }
