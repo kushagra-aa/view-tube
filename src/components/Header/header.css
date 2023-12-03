@@ -1,9 +1,13 @@
 header {
-  @apply flex py-3 px-5;
+  @apply flex py-3 px-5 fixed;
 
+  top: 0;
+  left: 0;
+  width: 100vw;
   background: rgb(var(--background-rgb));
   height: var(--header-height);
   .logo_area {
+    @apply flex items-center;
     flex: 0.3;
 
     .logo {

@@ -18,18 +18,22 @@ body {
   --header-height: 10vh;
   --nav-width: 15vw;
 
+  height: 100vh;
+  width: 100vw;
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
-
-  .content {
-    @apply flex;
-
-    height: calc(100vh- var(--header-height));
-  }
+  position: relative;
 
   main {
-    @apply overflow-y-scroll;
+    @apply flex-1 absolute;
 
-    width: calc(100vw- var(--nav-width));
+    bottom: 0;
+    right: 0;
+    width: calc(100vw - var(--nav-width));
+    height: calc(100vh - var(--header-height));
+
+    overflow: scroll;
+    scrollbar-color: rgb(var(--foreground-rgb)) rgb(var(--background-rgb));
+    scrollbar-width: thin;
   }
 }

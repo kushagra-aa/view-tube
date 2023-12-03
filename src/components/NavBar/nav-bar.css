@@ -1,8 +1,13 @@
 nav {
-  @apply flex flex-col gap-3 px-3;
+  @apply flex flex-col gap-3 px-3 absolute;
 
+  bottom: 0;
+  left: 0;
+  overflow-y: scroll;
+  scrollbar-color: rgb(var(--foreground-rgb)) rgb(var(--background-rgb));
+  scrollbar-width: thin;
   width: var(--nav-width);
-  height: inherit;
+  height: calc(100vh - var(--header-height));
 
   span {
     @apply mt-1 pt-1 px-1;

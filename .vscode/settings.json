@@ -1,7 +1,8 @@
 {
     "cSpell.words": [
         "headlessui",
-        "tailwindcss"
+        "tailwindcss",
+        "tumbnail"
     ],
     "files.exclude": {
         "**/.git": true,

@@ -1,0 +1,52 @@
+.video_card {
+  --card_width: 18rem;
+  --thumbnail_height: 9rem;
+
+  width: var(--card_width);
+
+  .video_tumbnail {
+    @apply relative rounded-lg overflow-hidden;
+
+    isolation: isolate;
+    height: var(--thumbnail_height);
+    width: var(--card_width);
+
+    span.ago {
+      @apply absolute rounded-lg;
+
+      bottom: 0.5rem;
+      right: 0.5rem;
+      z-index: 10;
+      font-size: 0.75rem;
+      font-weight: 200;
+      background: rgb(var(--background-rgb));
+      padding: 0.25rem 0.5rem;
+    }
+  }
+
+  p {
+    width: var(--card_width);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 1rem;
+
+    &.video_channel {
+      -webkit-line-clamp: 1;
+      font-size: 0.85rem;
+      font-weight: 400;
+    }
+  }
+
+  .video_upload {
+    @apply flex items-center gap-2;
+
+    span {
+      font-size: 0.75rem;
+    }
+  }
+
+  &.big_video_card {
+  }
+}
