@@ -9,6 +9,7 @@ export type VideoType = {
     channelId: string;
     title: string;
     description: string;
+    tags: string[];
     thumbnails: {
       high: {
         url: string;
@@ -19,5 +20,14 @@ export type VideoType = {
     channelTitle: string;
     liveBroadcastContent: string;
     publishTime: string;
+  };
+};
+
+export type VideoStatsType = {
+  statistics: {
+    viewCount: string;
+    likeCount: string;
+    favoriteCount: string;
+    commentCount: string;
   };
 };

@@ -1,7 +1,9 @@
+"use client";
 import VideoCard from "@/components/VideoCard/VideoCard";
 import styles from "./page.module.css";
 import { VideoType } from "@/models/VideoType";
 import { makeAPIRequest } from "@/lib/useAPI";
+import { useEffect, useState } from "react";
 
 type DataType = { items: VideoType[] };
 
@@ -12,10 +14,18 @@ const getVideos = async () => {
   return data.items;
 };
 
-export default async function Home() {
-  const videos: VideoType[] = await getVideos().then((d) => {
-    return d;
-  });
+export default function Home() {
+  const [videos, setVideos] = useState<VideoType[]>([]);
+  const get = async () => {
+    await getVideos().then((d) => {
+      setVideos(d);
+    });
+  };
+
+  useEffect(() => {
+    get();
+  }, []);
+
   return (
     <main className={styles.main}>
       {videos?.map((v) => (

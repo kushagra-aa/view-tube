@@ -1,4 +1,111 @@
 .main {
-  background: #000;
-  color: rgb(211, 167, 255);
+  @apply py-2 px-8 flex gap-4;
+}
+
+.video {
+  @apply overflow-y-scroll grid;
+
+  flex: 1;
+}
+
+.player > div {
+  height: calc(calc(60 / 100) * var(--main-height)) !important;
+  width: calc(calc(60 / 100) * var(--main-width)) !important;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.video_details {
+  @apply grid gap-4;
+  grid-template-areas:
+    "title title title"
+    "title title title"
+    "title title title"
+    "stats stats action"
+    "tags tags tags"
+    "date date date"
+    "channel channel channel"
+    "description description description";
+}
+
+.title {
+  @apply text-2xl mt-2;
+  grid-area: title;
+}
+
+.stats {
+  @apply flex gap-2;
+  grid-area: stats;
+}
+.stat {
+  @apply flex items-center justify-center gap-1 rounded-lg p-2;
+
+  background: rgba(var(--foreground-rgb), 0.2);
+}
+.date {
+  @apply flex gap-2 text-lg;
+  grid-area: date;
+}
+.tags {
+  @apply flex flex-wrap gap-2;
+  grid-area: tags;
+}
+.tag {
+  @apply text-blue-200 text-sm;
+}
+.action_video {
+  @apply bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded;
+
+  justify-self: center;
+  align-self: center;
+  grid-area: action;
+}
+.channel {
+  @apply flex gap-4 items-center;
+
+  grid-area: channel;
+}
+.channel_link {
+  @apply flex gap-4 items-center;
+}
+.channel_icon {
+  --size: 3rem;
+
+  @apply relative rounded-full overflow-hidden;
+
+  height: var(--size);
+  width: var(--size);
+}
+.channel_action {
+  @apply flex items-center justify-end;
+  flex: 1;
+}
+.channel_action_link {
+  @apply bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded;
+
+  width: max-content;
+}
+
+.description {
+  @apply py-2 px-4 flex flex-col gap-2 rounded-lg;
+
+  grid-area: description;
+  background: rgba(var(--foreground-rgb), 0.1);
+  overflow: hidden;
+}
+
+.short_description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.collapse_btn {
+  width: max-content;
+  color: rgba(var(--foreground-rgb), 0.8);
+}
+
+.related_videos {
+  @apply px-6 flex flex-col gap-2  items-end overflow-y-scroll;
 }

@@ -5,7 +5,7 @@ import { VideoType } from "@/models/VideoType";
 
 function SmallVideoCard({ video }: { video: VideoType }) {
   return (
-    <div className="big_video_card video_card">
+    <div className="small_video_card video_card">
       <div className="video_tumbnail">
         <Image
           src={video.snippet.thumbnails.high.url}

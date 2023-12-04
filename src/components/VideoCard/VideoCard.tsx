@@ -10,13 +10,13 @@ function VideoCard({
   size: "big" | "small";
   video: VideoType;
 }) {
-  if (size == "small")
+  if (size === "small")
     return (
       <Link href={`/watch?v=${video.id.videoId}`}>
         <SmallVideoCard video={video} />
       </Link>
     );
-  if (size == "big")
+  if (size === "big")
     return (
       <Link href={`/watch?v=${video.id.videoId}`}>
         <BigVideoCard video={video} />

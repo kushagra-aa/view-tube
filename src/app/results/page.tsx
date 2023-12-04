@@ -19,14 +19,17 @@ const getVideos = async (searchTerm: string) => {
 export default function Home() {
   const [videos, setVideos] = useState<VideoType[]>([]);
   const [searchParams] = useURLSearchParams();
+
   const get = async (searchQuery: string) => {
     await getVideos(searchQuery).then((d) => {
       setVideos(d);
     });
   };
+
   useEffect(() => {
     get(searchParams.search);
   }, [searchParams]);
+
   return (
     <main className={styles.main}>
       {videos?.map((v) => (
