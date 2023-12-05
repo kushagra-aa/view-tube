@@ -1,0 +1,47 @@
+.main {
+  @apply grid gap-x-4 gap-y-10;
+
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.stat_card {
+  --icon-size: 3rem;
+
+  @apply px-2 py-4 grid gap-x-4 gap-y-2 rounded-lg;
+
+  width: 100%;
+  background: rgba(var(--foreground-rgb), 0.1);
+  grid-template-columns: var(--icon-size) auto;
+}
+.stat_card:last-of-type {
+  margin: 0;
+}
+.stat_card > .stat_title {
+  @apply text-lg font-light;
+}
+.stat_card > .stat_value {
+  @apply text-xl font-semibold;
+}
+.stat_card > svg {
+  @apply justify-self-center self-center;
+
+  color: rgba(var(--background-rgb), 1);
+  grid-row: 1/3;
+  height: var(--icon-size);
+  width: var(--icon-size);
+}
+
+.description {
+  grid-column: 1/-1;
+  display: block;
+  width: 100%;
+}
+.description > .description_title {
+  @apply text-xl font-semibold mb-4;
+}
+.description > .description_value {
+  @apply text-base px-8 py-6 rounded-lg;
+
+  width: 60%;
+  background: rgba(var(--foreground-rgb), 0.1);
+}
