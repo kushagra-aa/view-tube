@@ -5,18 +5,18 @@
 
   width: var(--card_width);
 
-  .video_tumbnail {
+  & > .video_tumbnail {
     @apply relative rounded-lg overflow-hidden;
 
     isolation: isolate;
     height: var(--thumbnail_height);
     width: var(--thumbnail_width);
 
-    img {
+    & > img {
       object-fit: cover;
     }
 
-    span.ago {
+    & > span.ago {
       @apply absolute rounded-lg;
 
       bottom: 0.5rem;
@@ -29,7 +29,7 @@
     }
   }
 
-  p {
+  & > p {
     width: var(--card_width);
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -44,7 +44,7 @@
     }
   }
 
-  .video_upload {
+  & > .video_upload {
     @apply flex items-center gap-2;
 
     span {
@@ -62,10 +62,10 @@
     grid-template-columns: var(--thumbnail_width) auto;
     grid-template-rows: 1fr 0.5fr 0.5fr;
 
-    .video_tumbnail {
+    & > .video_tumbnail {
       grid-row: 1/4;
     }
-    p {
+    & > p {
       width: calc(var(--card_width) - var(--thumbnail_width));
       -webkit-line-clamp: 2;
       font-size: 0.85rem;

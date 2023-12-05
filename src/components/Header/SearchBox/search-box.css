@@ -1,7 +1,7 @@
 .search_box {
   @apply flex items-center justify-center gap-3;
 
-  .main_box {
+  & > .main_box {
     --bg: rgba(var(--background-rgb));
 
     @apply flex items-center justify-center rounded-full pl-4 pr-0 overflow-hidden;
@@ -13,11 +13,11 @@
       outline: 1px solid rgba(var(--foreground-rgb), 0.2);
     }
 
-    label {
+    & > label {
       height: 2rem;
       width: 35vw;
 
-      input {
+      & > input {
         height: 2rem;
         background: transparent;
 
@@ -28,7 +28,7 @@
       }
     }
 
-    button {
+    & > button {
       @apply p-2;
 
       border-radius: 0 100% 100% 0;

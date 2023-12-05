@@ -24,7 +24,7 @@ body {
   background: rgb(var(--background-rgb));
   position: relative;
 
-  main {
+  & > main {
     --main-width: calc(100vw - var(--nav-width));
     --main-height: calc(100vh - var(--header-height));
     @apply flex-1 absolute;
@@ -37,5 +37,23 @@ body {
     overflow: scroll;
     scrollbar-color: rgb(var(--foreground-rgb)) rgb(var(--background-rgb));
     scrollbar-width: thin;
+
+    /* chrome */
+    &::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgb(var(--background-rgb));
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgb(var(--foreground-rgb));
+    }
+
+    &::-webkit-scrollbar-track:hover {
+      background: rgba(var(--foreground-rgb), 0.2);
+    }
   }
 }

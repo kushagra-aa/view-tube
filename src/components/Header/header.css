@@ -6,11 +6,11 @@ header {
   width: 100vw;
   background: rgb(var(--background-rgb));
   height: var(--header-height);
-  .logo_area {
+  & > .logo_area {
     @apply flex items-center;
     flex: 0.3;
 
-    .logo {
+    & > .logo {
       @apply relative cursor-pointer;
 
       height: 3rem;
@@ -18,31 +18,31 @@ header {
     }
   }
 
-  .search_area {
+  & > .search_area {
     @apply flex items-center justify-center;
 
     flex: 1;
   }
 
-  .side_actions {
+  & > .side_actions {
     @apply flex items-center justify-end gap-2;
 
     flex: 0.3;
 
-    button {
+    & > button {
       @apply p-2 rounded-full;
 
       &:hover {
         background: #000;
       }
 
-      svg {
+      & > svg {
         height: 1.7rem;
         width: 1.7rem;
       }
     }
 
-    .user_icon {
+    & > .user_icon {
       @apply relative cursor-pointer;
 
       height: 3rem;
