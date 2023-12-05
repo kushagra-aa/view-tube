@@ -7,6 +7,23 @@
 
   flex: 1;
 }
+/* chrome */
+.video::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.video::-webkit-scrollbar-track {
+  background: rgb(var(--background-rgb));
+}
+
+.video::-webkit-scrollbar-thumb {
+  background: rgb(var(--foreground-rgb));
+}
+
+.video::-webkit-scrollbar-track:hover {
+  background: rgba(var(--foreground-rgb), 0.2);
+}
 
 .player > div {
   height: calc(calc(60 / 100) * var(--main-height)) !important;
@@ -108,4 +125,21 @@
 
 .related_videos {
   @apply px-6 flex flex-col gap-2  items-end overflow-y-scroll;
+}
+/* chrome */
+.related_videos::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.related_videos::-webkit-scrollbar-track {
+  background: rgb(var(--background-rgb));
+}
+
+.related_videos::-webkit-scrollbar-thumb {
+  background: rgb(var(--foreground-rgb));
+}
+
+.related_videos::-webkit-scrollbar-track:hover {
+  background: rgba(var(--foreground-rgb), 0.2);
 }
