@@ -69,3 +69,10 @@
 .video_card.small_video_card > p.video_channel {
   font-size: 0.7rem;
 }
+
+@media screen and (width <=600px) {
+  .video_card {
+    --card_width: 24rem;
+    --thumbnail_height: 13rem;
+  }
+}
