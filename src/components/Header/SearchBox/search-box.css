@@ -48,3 +48,19 @@
 .voice_search:hover {
   background: rgba(var(--foreground-rgb), 0.15);
 }
+
+@media screen and (width <=600px) {
+  .search_box {
+    width: 100%;
+  }
+  .main_box {
+    width: 100%;
+  }
+  .search_box > .main_box > label {
+    width: 100%;
+  }
+
+  .voice_search {
+    display: none;
+  }
+}

@@ -17,6 +17,7 @@
 body {
   --header-height: 10vh;
   --nav-width: 15vw;
+  --nav-height: calc(100vh - var(--header-height));
 
   height: 100vh;
   width: 100vw;
@@ -39,20 +40,34 @@ body > main {
   scrollbar-color: rgb(var(--foreground-rgb)) rgb(var(--background-rgb));
   scrollbar-width: thin;
 }
+
 /* chrome */
 main::-webkit-scrollbar {
   width: 4px;
   height: 4px;
 }
-
 main::-webkit-scrollbar-track {
   background: rgb(var(--background-rgb));
 }
-
 main::-webkit-scrollbar-thumb {
   background: rgb(var(--foreground-rgb));
 }
-
 main::-webkit-scrollbar-track:hover {
   background: rgba(var(--foreground-rgb), 0.2);
+}
+
+/* 
+    mobile: 600px 
+    */
+
+/* Mobile Mode */
+@media screen and (width <=600px) {
+  body {
+    --header-height: 7vh;
+    --nav-height: 7vh;
+  }
+  body > main {
+    --main-width: 100vw;
+    --main-height: calc(100vh - var(--nav-height));
+  }
 }

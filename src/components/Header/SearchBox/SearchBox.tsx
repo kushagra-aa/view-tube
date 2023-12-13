@@ -36,7 +36,7 @@ function SearchBox() {
       }
     },
     [searchValue],
-    300
+    500
   );
   useEffect(() => {
     setSearchValue(searchParams.search);

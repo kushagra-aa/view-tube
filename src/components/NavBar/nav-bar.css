@@ -7,7 +7,7 @@ nav {
   scrollbar-color: rgb(var(--foreground-rgb)) rgb(var(--background-rgb));
   scrollbar-width: thin;
   width: var(--nav-width);
-  height: calc(100vh - var(--header-height));
+  height: var(--nav-height);
 }
 /* chrome */
 nav::-webkit-scrollbar {
@@ -48,4 +48,37 @@ nav > .nav_item:is(:hover, :focus-visible) {
 
 nav > .nav_item.active {
   background: var(--active-bg);
+}
+
+/* Mobile Mode */
+@media screen and (width <=600px) {
+  nav {
+    @apply flex-row justify-between overflow-x-hidden p-0;
+
+    position: fixed;
+    bottom: 0;
+    z-index: 11;
+    width: 100vw;
+    background: rgb(var(--background-rgb));
+    border-top: 1px solid rgba(var(--foreground-rgb), 0.5);
+  }
+
+  nav > .nav_item {
+    @apply flex flex-col items-center justify-center gap-0.5 py-2 px-2 rounded-none text-sm;
+
+    width: fit-content;
+  }
+
+  /* 7 because:: */
+  /* 1st-child: home */
+  /* 1st-child: explore span */
+  /* 2,3,4,5,6 are the one visible */
+  /* 7 and everything beyond that is invisible */
+  nav > .nav_item:nth-child(n + 7) {
+    display: none;
+  }
+
+  nav > span {
+    display: none;
+  }
 }

@@ -26,11 +26,6 @@ const exploreItems = [
     route: "Trending",
   },
   {
-    name: "Shopping",
-    icon: <BagIcon />,
-    route: "Shopping",
-  },
-  {
     name: "Music",
     icon: <MusicIcon />,
     route: "Music",
@@ -44,6 +39,11 @@ const exploreItems = [
     name: "Coding",
     icon: <CodingIcon />,
     route: "Coding",
+  },
+  {
+    name: "Shopping",
+    icon: <BagIcon />,
+    route: "Shopping",
   },
 ];
 const categoryItems = [
@@ -93,7 +93,7 @@ function NavBar() {
           href={`/results?search=${item.route}`}
           key={item.name}
           title={item.name}
-          className={`nav_item ${
+          className={`nav_item explore_items ${
             searchParams.search === item.route ? "active" : ""
           }`}
         >
@@ -107,7 +107,7 @@ function NavBar() {
           href={`/results?search=${item.route}`}
           key={item.name}
           title={item.name}
-          className={`nav_item ${
+          className={`nav_item categories_items ${
             searchParams.search === item.route ? "active" : ""
           }`}
         >
