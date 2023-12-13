@@ -23,37 +23,36 @@ body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
   position: relative;
+}
 
-  & > main {
-    --main-width: calc(100vw - var(--nav-width));
-    --main-height: calc(100vh - var(--header-height));
-    @apply flex-1 absolute;
+body > main {
+  --main-width: calc(100vw - var(--nav-width));
+  --main-height: calc(100vh - var(--header-height));
+  @apply flex-1 absolute;
 
-    bottom: 0;
-    right: 0;
-    width: var(--main-width);
-    height: var(--main-height);
+  bottom: 0;
+  right: 0;
+  width: var(--main-width);
+  height: var(--main-height);
 
-    overflow: scroll;
-    scrollbar-color: rgb(var(--foreground-rgb)) rgb(var(--background-rgb));
-    scrollbar-width: thin;
+  overflow: scroll;
+  scrollbar-color: rgb(var(--foreground-rgb)) rgb(var(--background-rgb));
+  scrollbar-width: thin;
+}
+/* chrome */
+main::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
 
-    /* chrome */
-    &::-webkit-scrollbar {
-      width: 4px;
-      height: 4px;
-    }
+main::-webkit-scrollbar-track {
+  background: rgb(var(--background-rgb));
+}
 
-    &::-webkit-scrollbar-track {
-      background: rgb(var(--background-rgb));
-    }
+main::-webkit-scrollbar-thumb {
+  background: rgb(var(--foreground-rgb));
+}
 
-    &::-webkit-scrollbar-thumb {
-      background: rgb(var(--foreground-rgb));
-    }
-
-    &::-webkit-scrollbar-track:hover {
-      background: rgba(var(--foreground-rgb), 0.2);
-    }
-  }
+main::-webkit-scrollbar-track:hover {
+  background: rgba(var(--foreground-rgb), 0.2);
 }

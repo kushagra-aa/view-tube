@@ -8,46 +8,44 @@ nav {
   scrollbar-width: thin;
   width: var(--nav-width);
   height: calc(100vh - var(--header-height));
+}
+/* chrome */
+nav::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
 
-  /* chrome */
-  &::-webkit-scrollbar {
-    width: 4px;
-    height: 4px;
-  }
+nav::-webkit-scrollbar-track {
+  background: rgb(var(--background-rgb));
+}
 
-  &::-webkit-scrollbar-track {
-    background: rgb(var(--background-rgb));
-  }
+nav::-webkit-scrollbar-thumb {
+  background: rgb(var(--foreground-rgb));
+}
 
-  &::-webkit-scrollbar-thumb {
-    background: rgb(var(--foreground-rgb));
-  }
+nav::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--foreground-rgb), 0.2);
+}
 
-  &::-webkit-scrollbar-thumb:hover {
-    background: rgba(var(--foreground-rgb), 0.2);
-  }
+nav > span {
+  @apply mt-1 pt-1 px-1;
 
-  & > span {
-    @apply mt-1 pt-1 px-1;
+  border-top: 1px solid rgba(var(--foreground-rgb), 0.1);
+}
 
-    border-top: 1px solid rgba(var(--foreground-rgb), 0.1);
-  }
+nav > .nav_item {
+  --active-bg: rgba(var(--foreground-rgb), 0.2);
 
-  & > .nav_item {
-    --active-bg: rgba(var(--foreground-rgb), 0.2);
+  @apply flex gap-4 px-2 py-1 rounded-md;
 
-    @apply flex gap-4 px-2 py-1 rounded-md;
+  width: calc(var(--nav-width) - 2.25rem);
+}
+nav > .nav_item:is(:hover, :focus-visible) {
+  outline: none;
+  border: none;
+  background: var(--active-bg);
+}
 
-    width: calc(var(--nav-width) - 2.25rem);
-
-    &:is(:hover, :focus-visible) {
-      outline: none;
-      border: none;
-      background: var(--active-bg);
-    }
-
-    &.active {
-      background: var(--active-bg);
-    }
-  }
+nav > .nav_item.active {
+  background: var(--active-bg);
 }

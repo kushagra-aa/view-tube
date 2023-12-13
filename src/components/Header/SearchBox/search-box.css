@@ -1,57 +1,50 @@
 .search_box {
   @apply flex items-center justify-center gap-3;
+}
+.search_box > .main_box {
+  --bg: rgba(var(--background-rgb));
 
-  & > .main_box {
-    --bg: rgba(var(--background-rgb));
+  @apply flex items-center justify-center rounded-full pl-4 pr-0 overflow-hidden;
 
-    @apply flex items-center justify-center rounded-full pl-4 pr-0 overflow-hidden;
+  background: var(--bg);
+  border: 1px solid rgba(var(--foreground-rgb), 0.2);
+}
+.search_box > .main_box:focus-within {
+  outline: 1px solid rgba(var(--foreground-rgb), 0.2);
+}
 
-    background: var(--bg);
-    border: 1px solid rgba(var(--foreground-rgb), 0.2);
+.search_box > .main_box > label {
+  height: 2rem;
+  width: 35vw;
+}
+.search_box > .main_box > label > input {
+  height: 2rem;
+  background: transparent;
+}
+.search_box > .main_box > label > input:is(:focus) {
+  outline: none;
+  border: none;
+}
 
-    &:focus-within {
-      outline: 1px solid rgba(var(--foreground-rgb), 0.2);
-    }
+.search_box > .main_box > button {
+  @apply p-2;
 
-    & > label {
-      height: 2rem;
-      width: 35vw;
+  border-radius: 0 100% 100% 0;
+  background: rgba(var(--foreground-rgb), 0.1);
+}
+.search_box > .main_box > button:is(:focus-visible, :active) {
+  outline: none;
+  border: none;
+}
+.voice_search {
+  @apply p-2 flex items-center justify-center rounded-full;
+  background: rgba(var(--foreground-rgb), 0.1);
+}
+.voice_search:is(:focus-visible, :active) {
+  outline: 1px solid rgba(var(--foreground-rgb), 0.2);
+  border: none;
+}
 
-      & > input {
-        height: 2rem;
-        background: transparent;
-
-        &:is(:focus) {
-          outline: none;
-          border: none;
-        }
-      }
-    }
-
-    & > button {
-      @apply p-2;
-
-      border-radius: 0 100% 100% 0;
-      background: rgba(var(--foreground-rgb), 0.1);
-
-      &:is(:focus-visible, :active) {
-        outline: none;
-        border: none;
-      }
-    }
-  }
-
-  .voice_search {
-    @apply p-2 flex items-center justify-center rounded-full;
-    background: rgba(var(--foreground-rgb), 0.1);
-
-    &:is(:focus-visible, :active) {
-      outline: 1px solid rgba(var(--foreground-rgb), 0.2);
-      border: none;
-    }
-
-    &:hover {
-      background: rgba(var(--foreground-rgb), 0.15);
-    }
-  }
+.voice_search:hover {
+  background: rgba(var(--foreground-rgb), 0.15);
 }

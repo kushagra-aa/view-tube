@@ -6,47 +6,44 @@ header {
   width: 100vw;
   background: rgb(var(--background-rgb));
   height: var(--header-height);
-  & > .logo_area {
-    @apply flex items-center;
-    flex: 0.3;
+}
+header > .logo_area {
+  @apply flex items-center;
+  flex: 0.3;
+}
+header > .logo_area > .logo {
+  @apply relative cursor-pointer;
 
-    & > .logo {
-      @apply relative cursor-pointer;
+  height: 3rem;
+  width: 3rem;
+}
 
-      height: 3rem;
-      width: 3rem;
-    }
-  }
+header > .search_area {
+  @apply flex items-center justify-center;
 
-  & > .search_area {
-    @apply flex items-center justify-center;
+  flex: 1;
+}
 
-    flex: 1;
-  }
+header > .side_actions {
+  @apply flex items-center justify-end gap-2;
 
-  & > .side_actions {
-    @apply flex items-center justify-end gap-2;
+  flex: 0.3;
+}
+header > .side_actions > button {
+  @apply p-2 rounded-full;
+}
+header > .side_actions > button:hover {
+  background: #000;
+}
 
-    flex: 0.3;
+header > .side_actions > button > svg {
+  height: 1.7rem;
+  width: 1.7rem;
+}
 
-    & > button {
-      @apply p-2 rounded-full;
+header > .side_actions > .user_icon {
+  @apply relative cursor-pointer;
 
-      &:hover {
-        background: #000;
-      }
-
-      & > svg {
-        height: 1.7rem;
-        width: 1.7rem;
-      }
-    }
-
-    & > .user_icon {
-      @apply relative cursor-pointer;
-
-      height: 3rem;
-      width: 3rem;
-    }
-  }
+  height: 3rem;
+  width: 3rem;
 }

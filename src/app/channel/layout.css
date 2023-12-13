@@ -15,58 +15,57 @@
     "icon action banner";
   width: 100%;
   height: fit-content;
+}
 
-  & > .channel_banner {
-    @apply relative overflow-hidden rounded-lg shadow-md;
+.channel > .channel_banner {
+  @apply relative overflow-hidden rounded-lg shadow-md;
 
-    grid-area: banner;
-    width: var(--banner-width);
-    height: 14.8vh;
-    box-shadow: 0px 2px 15px -3px rgba(var(--foreground-rgb), 0.1);
+  grid-area: banner;
+  width: var(--banner-width);
+  height: 14.8vh;
+  box-shadow: 0px 2px 15px -3px rgba(var(--foreground-rgb), 0.1);
+}
 
-    & > img {
-      object-fit: cover;
-    }
-  }
+.channel > .channel_banner > img {
+  object-fit: cover;
+}
 
-  & > .channel_icon {
-    @apply relative overflow-hidden rounded-full shadow-md;
+.channel > .channel_icon {
+  @apply relative overflow-hidden rounded-full shadow-md;
 
-    grid-area: icon;
-    width: var(--icon-size);
-    height: var(--icon-size);
-    box-shadow: 0px 2px 15px -3px rgba(var(--foreground-rgb), 0.1);
-  }
+  grid-area: icon;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  box-shadow: 0px 2px 15px -3px rgba(var(--foreground-rgb), 0.1);
+}
 
-  & > h1 {
-    @apply px-4 text-2xl;
+.channel > h1 {
+  @apply px-4 text-2xl;
 
-    grid-area: name;
-  }
-  & > .channel_action {
-    @apply bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded;
-    grid-area: action;
-  }
+  grid-area: name;
+}
+.channel > .channel_action {
+  @apply bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded;
+  grid-area: action;
 }
 
 .channel_nav {
   @apply flex gap-8;
 
   width: 100%;
+}
+.channel_nav > a {
+  @apply border-b-2 flex items-center justify-center text-lg;
 
-  & > a {
-    @apply border-b-2 flex items-center justify-center text-lg;
+  flex: 1;
+  border-color: rgba(var(--foreground-rgb), 1);
+}
 
-    flex: 1;
-    border-color: rgba(var(--foreground-rgb), 1);
+.channel_nav > a:focus-visible {
+  @apply border-red-300 text-red-300;
 
-    &:focus-visible {
-      @apply border-red-300 text-red-300;
-
-      outline: none;
-    }
-    &.active {
-      @apply border-red-600;
-    }
-  }
+  outline: none;
+}
+.channel_nav > a.active {
+  @apply border-red-600;
 }
