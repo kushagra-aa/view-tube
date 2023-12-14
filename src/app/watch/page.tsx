@@ -141,13 +141,15 @@ function Watch() {
               >
                 <div className={styles.channel_icon}>
                   <Image
-                    src={channel.snippet.thumbnails.high.url}
-                    alt={channel.snippet.title}
+                    src={channel.snippet?.thumbnails?.high?.url}
+                    alt={channel.snippet?.title}
                     fill
                     sizes="100%"
                   />
                 </div>
-                <h2>{channel.snippet.title}</h2>
+                <h2 className={styles.channel_title}>
+                  {channel.snippet.title}
+                </h2>
               </Link>
               <div className={styles.channel_action}>
                 <Link

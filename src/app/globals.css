@@ -68,6 +68,8 @@ main::-webkit-scrollbar-track:hover {
   }
   body > main {
     --main-width: 100vw;
-    --main-height: calc(100vh - var(--nav-height));
+    --main-height: calc(100vh - calc(var(--nav-height) + var(--header-height)));
+
+    margin: var(--header-height) 0 var(--nav-height) 0;
   }
 }

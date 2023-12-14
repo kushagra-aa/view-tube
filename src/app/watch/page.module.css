@@ -143,3 +143,66 @@
 .related_videos::-webkit-scrollbar-track:hover {
   background: rgba(var(--foreground-rgb), 0.2);
 }
+
+@media screen and (width <=600px) {
+  .related_videos {
+    display: none;
+  }
+
+  .video {
+    @apply overflow-hidden;
+
+    height: max-content;
+  }
+  .player > div {
+    height: calc(calc(25 / 100) * var(--main-height)) !important;
+    width: calc(calc(85 / 100) * var(--main-width)) !important;
+  }
+  .video_details {
+    @apply grid gap-2;
+    grid-template-areas:
+      "title title title"
+      "title title title"
+      "title title title"
+      "stats stats stats"
+      "action action action"
+      "tags tags tags"
+      "date date date"
+      "channel channel channel"
+      "channel channel channel"
+      "description description description";
+  }
+  .stats {
+    @apply justify-between;
+  }
+  .stat {
+    flex: 1;
+  }
+  .date {
+    @apply justify-between;
+  }
+  .channel {
+    @apply items-start flex-col;
+
+    flex-wrap: wrap;
+  }
+
+  .channel_title {
+    flex: 1;
+  }
+  .channel_action {
+    @apply justify-start;
+  }
+
+  .action_video,
+  .channel_action {
+    @apply items-center justify-center flex;
+    width: 100%;
+  }
+  .channel_action_link {
+    @apply items-center justify-center flex;
+
+    height: fit-content;
+    width: 100%;
+  }
+}
