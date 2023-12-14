@@ -45,3 +45,12 @@
   width: 60%;
   background: rgba(var(--foreground-rgb), 0.1);
 }
+
+@media screen and (width <=600px) {
+  .main {
+    @apply flex flex-col gap-y-4;
+  }
+  .description > .description_value {
+    width: 100%;
+  }
+}
