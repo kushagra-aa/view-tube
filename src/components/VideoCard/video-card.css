@@ -11,6 +11,8 @@
   isolation: isolate;
   height: var(--thumbnail_height);
   width: var(--thumbnail_width);
+  animation: skeletal-pulsing var(--global-skeletal-pulsing-duration)
+    var(--global-skeletal-pulsing-animation-config);
 }
 .video_card > .video_tumbnail > img {
   object-fit: cover;
@@ -68,6 +70,42 @@
 }
 .video_card.small_video_card > p.video_channel {
   font-size: 0.7rem;
+}
+
+.loader_video_card {
+  --color-bg: var(--color-bg-1-rgb);
+}
+
+.loader_video_card > .video_title {
+  @apply flex flex-col;
+  height: 2.75rem;
+}
+.loader_video_card > .video_title > span {
+  display: block;
+  margin: 0.25rem 0;
+  width: 95%;
+  height: 1rem;
+  color: transparent;
+  animation: skeletal-pulsing var(--global-skeletal-pulsing-duration)
+    var(--global-skeletal-pulsing-animation-config);
+}
+.loader_video_card > .video_title > span:last-of-type {
+  width: 80%;
+}
+.loader_video_card > .video_channel {
+  margin: 0.25rem 0;
+  height: 0.75rem;
+  width: 60%;
+  color: transparent;
+  animation: skeletal-pulsing var(--global-skeletal-pulsing-duration)
+    var(--global-skeletal-pulsing-animation-config);
+}
+.loader_video_card > .video_upload > :is(.time, .date) {
+  width: 4rem;
+  height: 0.75rem;
+  color: transparent;
+  animation: skeletal-pulsing var(--global-skeletal-pulsing-duration)
+    var(--global-skeletal-pulsing-animation-config);
 }
 
 @media screen and (width <=600px) {

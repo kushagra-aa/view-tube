@@ -13,14 +13,26 @@ function SmallVideoCard({ video }: { video: VideoType }) {
           sizes="100%"
           fill
         />
-        <span className="ago">{relativeTime(video.snippet?.publishedAt)}</span>
+        {video.snippet.publishedAt && (
+          <span className="ago">
+            {relativeTime(video.snippet?.publishedAt)}
+          </span>
+        )}
       </div>
       <p className="video_title">{video.snippet?.title}</p>
       <p className="video_channel">{video.snippet?.channelTitle}</p>
       <div className="video_upload">
-        <span className="time">{formatTime(video.snippet?.publishedAt)}</span>
+        <span className="time">
+          {video.snippet.publishedAt
+            ? formatTime(video.snippet?.publishedAt)
+            : "--"}
+        </span>
         <span>•</span>
-        <span className="date">{formatDate(video.snippet?.publishedAt)}</span>
+        <span className="date">
+          {video.snippet.publishedAt
+            ? formatDate(video.snippet?.publishedAt)
+            : "--"}
+        </span>
       </div>
     </div>
   );

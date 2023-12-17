@@ -12,6 +12,7 @@ import { formatDate, formatTime } from "@/helpers/dateTime";
 import { ChannelType } from "@/models/ChannelType";
 import Image from "next/image";
 import { CommentIcon, LikeIcon, ViewIcon } from "@/components/Icons";
+import VideoCardLoader from "@/components/VideoCard/VideoCardLoader";
 
 type VideoDetailsType = VideoType & VideoStatsType;
 type DataType = { items: VideoDetailsType[] };
@@ -43,6 +44,7 @@ function Watch() {
   const [video, setVideo] = useState<VideoDetailsType>();
   const [relatedVideos, setRelatedVideos] = useState<VideoType[]>([]);
   const [channel, setChannel] = useState<ChannelType>();
+  const [isLoading, setIsLoading] = useState(true);
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
   const [searchParams] = useURLSearchParams();
 
@@ -52,11 +54,13 @@ function Watch() {
     });
   };
   const get = async (videoID: string) => {
+    setIsLoading(true);
     await getVideo(videoID).then((d) => {
       setVideo(d[0]);
     });
     await getRelatedVideos(videoID).then((d) => {
       setRelatedVideos(d);
+      setIsLoading(false);
     });
   };
 
@@ -191,6 +195,11 @@ function Watch() {
         </div>
       </div>
       <div className={styles.related_videos}>
+        {isLoading
+          ? [1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((i) => (
+              <VideoCardLoader type="small" key={i} />
+            ))
+          : null}
         {relatedVideos.map((v) => (
           <VideoCard key={v.id.videoId} size="small" video={v} />
         ))}

@@ -18,6 +18,10 @@ body {
   --header-height: 10vh;
   --nav-width: 15vw;
   --nav-height: calc(100vh - var(--header-height));
+  --global-loading-pulsing-animation: loading-pulsing;
+  --global-skeletal-pulsing-animation: skeletal-pulsing;
+  --global-skeletal-pulsing-duration: 1s;
+  --global-skeletal-pulsing-animation-config: linear infinite alternate;
 
   height: 100vh;
   width: 100vw;
@@ -71,5 +75,28 @@ main::-webkit-scrollbar-track:hover {
     --main-height: calc(100vh - calc(var(--nav-height) + var(--header-height)));
 
     margin: var(--header-height) 0 var(--nav-height) 0;
+  }
+}
+
+@keyframes skeletal-pulsing {
+  0% {
+    --color: rgba(var(--foreground-rgb), 10%);
+    border-radius: 0.125rem;
+    background-color: var(--color, rgba(50, 50, 50, 50%));
+  }
+
+  100% {
+    border-radius: 0.125rem;
+    background-color: transparent;
+  }
+}
+
+@keyframes loading-pulsing {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.3;
   }
 }
