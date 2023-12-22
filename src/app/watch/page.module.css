@@ -25,6 +25,13 @@
   background: rgba(var(--foreground-rgb), 0.2);
 }
 
+.player_loader {
+  height: calc(calc(60 / 100) * var(--main-height)) !important;
+  width: calc(calc(60 / 100) * var(--main-width)) !important;
+  animation: var(--global-skeletal-pulsing-animation)
+    var(--global-skeletal-pulsing-duration)
+    var(--global-skeletal-pulsing-animation-config);
+}
 .player > div {
   height: calc(calc(60 / 100) * var(--main-height)) !important;
   width: calc(calc(60 / 100) * var(--main-width)) !important;
@@ -49,6 +56,14 @@
   @apply text-2xl mt-2;
   grid-area: title;
 }
+.title_loader {
+  height: 1.75rem;
+  width: 90%;
+  color: transparent;
+  animation: var(--global-skeletal-pulsing-animation)
+    var(--global-skeletal-pulsing-duration)
+    var(--global-skeletal-pulsing-animation-config);
+}
 
 .stats {
   @apply flex gap-2;
@@ -59,9 +74,23 @@
 
   background: rgba(var(--foreground-rgb), 0.2);
 }
+.stat_loader {
+  animation: var(--global-loading-pulsing-animation)
+    var(--global-skeletal-pulsing-duration)
+    var(--global-skeletal-pulsing-animation-config);
+}
 .date {
   @apply flex gap-2 text-lg;
   grid-area: date;
+  width: max-content;
+}
+.date_loader,
+.time_loader {
+  height: 1.5rem;
+  width: 20%;
+  animation: var(--global-skeletal-pulsing-animation)
+    var(--global-skeletal-pulsing-duration)
+    var(--global-skeletal-pulsing-animation-config);
 }
 .tags {
   @apply flex flex-wrap gap-2;
@@ -70,6 +99,13 @@
 .tag {
   @apply text-blue-200 text-sm;
 }
+.tag_loader {
+  height: 0.75rem;
+  width: 10%;
+  animation: var(--global-skeletal-pulsing-animation)
+    var(--global-skeletal-pulsing-duration)
+    var(--global-skeletal-pulsing-animation-config);
+}
 .action_video {
   @apply bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded;
 
@@ -77,13 +113,26 @@
   align-self: center;
   grid-area: action;
 }
+.action_video_loader {
+  @apply cursor-progress;
+}
 .channel {
   @apply flex gap-4 items-center;
 
   grid-area: channel;
 }
+.channel_title_loader {
+  height: 1.5rem;
+  width: 90%;
+  animation: var(--global-skeletal-pulsing-animation)
+    var(--global-skeletal-pulsing-duration)
+    var(--global-skeletal-pulsing-animation-config);
+}
 .channel_link {
   @apply flex gap-4 items-center;
+}
+.channel_link_loader {
+  width: 100%;
 }
 .channel_icon {
   --size: 3rem;
@@ -92,6 +141,11 @@
 
   height: var(--size);
   width: var(--size);
+}
+.channel_icon_loader {
+  animation: var(--global-skeletal-pulsing-animation)
+    var(--global-skeletal-pulsing-duration)
+    var(--global-skeletal-pulsing-animation-config);
 }
 .channel_action {
   @apply flex items-center justify-end;
@@ -102,6 +156,9 @@
 
   width: max-content;
 }
+.channel_action_link_loader {
+  @apply cursor-progress;
+}
 
 .description {
   @apply py-2 px-4 flex flex-col gap-2 rounded-lg;
@@ -109,6 +166,11 @@
   grid-area: description;
   background: rgba(var(--foreground-rgb), 0.1);
   overflow: hidden;
+}
+.description_loader {
+  animation: var(--global-loading-pulsing-animation)
+    var(--global-skeletal-pulsing-duration)
+    var(--global-skeletal-pulsing-animation-config);
 }
 
 .short_description {

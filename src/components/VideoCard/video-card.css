@@ -16,6 +16,7 @@
 }
 .video_card > .video_tumbnail > img {
   object-fit: cover;
+  color: transparent;
 }
 
 .video_card > .video_tumbnail > span.ago {

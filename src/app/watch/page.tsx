@@ -13,6 +13,7 @@ import { ChannelType } from "@/models/ChannelType";
 import Image from "next/image";
 import { CommentIcon, LikeIcon, ViewIcon } from "@/components/Icons";
 import VideoCardLoader from "@/components/VideoCard/VideoCardLoader";
+import VideoLoader from "./VideoLoader";
 
 type VideoDetailsType = VideoType & VideoStatsType;
 type DataType = { items: VideoDetailsType[] };
@@ -71,6 +72,18 @@ function Watch() {
     if (video) getChannel(video.snippet.channelId);
   }, [video]);
 
+  if (!video && isLoading)
+    return (
+      <main className={styles.main}>
+        <VideoLoader />
+        <div className={styles.related_videos}>
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((i) => (
+            <VideoCardLoader type="small" key={i} />
+          ))}
+        </div>
+      </main>
+    );
+
   if (!video)
     return (
       <main className={`${styles.main} flex-col items-center justify-center`}>
@@ -111,11 +124,11 @@ function Watch() {
             </div>
           </div>
           <p className={styles.date}>
-            <span className={styles.time}>
+            <span className={styles.time_val}>
               {formatTime(video.snippet.publishedAt)}
             </span>
             <span>•</span>
-            <span className={styles.date}>
+            <span className={styles.date_val}>
               {formatDate(video.snippet.publishedAt)}
             </span>
           </p>
@@ -195,11 +208,6 @@ function Watch() {
         </div>
       </div>
       <div className={styles.related_videos}>
-        {isLoading
-          ? [1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((i) => (
-              <VideoCardLoader type="small" key={i} />
-            ))
-          : null}
         {relatedVideos.map((v) => (
           <VideoCard key={v.id.videoId} size="small" video={v} />
         ))}
