@@ -81,12 +81,10 @@ main::-webkit-scrollbar-track:hover {
 @keyframes skeletal-pulsing {
   0% {
     --color: rgba(var(--foreground-rgb), 10%);
-    border-radius: 0.125rem;
     background-color: var(--color, rgba(50, 50, 50, 50%));
   }
 
   100% {
-    border-radius: 0.125rem;
     background-color: transparent;
   }
 }

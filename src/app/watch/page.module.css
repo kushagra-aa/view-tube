@@ -87,7 +87,7 @@
 .date_loader,
 .time_loader {
   height: 1.5rem;
-  width: 20%;
+  width: 10vw;
   animation: var(--global-skeletal-pulsing-animation)
     var(--global-skeletal-pulsing-duration)
     var(--global-skeletal-pulsing-animation-config);

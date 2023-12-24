@@ -7,6 +7,7 @@ import { makeAPIRequest } from "@/lib/useAPI";
 import "./layout.css";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import LayoutLoader from "./loaders/LayoutLoader";
 
 type DataType = { items: ChannelType[] };
 
@@ -21,18 +22,28 @@ const getChannelAPI = async (id: string) => {
 /* /channel?c=<channelID> */
 function ChannelLayout({ children }: { children: React.ReactNode }) {
   const [channel, setChannel] = useState<ChannelType>();
+  const [isLoading, setIsLoading] = useState(true);
   const [searchParams] = useURLSearchParams();
   const pathname = usePathname();
 
   const get = async (id: string) => {
+    setIsLoading(true);
     await getChannelAPI(id).then((d) => {
       setChannel(d[0]);
+      setIsLoading(false);
     });
   };
 
   useEffect(() => {
     get(searchParams.c);
   }, [searchParams.c]);
+
+  if (isLoading)
+    return (
+      <LayoutLoader id={searchParams.c || ""} pathname={pathname}>
+        <div className="channel_details">{children}</div>
+      </LayoutLoader>
+    );
 
   if (!channel)
     return (

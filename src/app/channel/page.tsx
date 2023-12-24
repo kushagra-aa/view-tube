@@ -4,7 +4,6 @@ import styles from "./page.module.css";
 import { makeAPIRequest } from "@/lib/useAPI";
 import { useEffect, useState } from "react";
 import useURLSearchParams from "@/hooks/useURLSearchParams";
-import { usePathname } from "next/navigation";
 import { formatDate } from "@/helpers/dateTime";
 import {
   InfoIcon,
@@ -12,6 +11,7 @@ import {
   VideoIcon,
   ViewIcon,
 } from "@/components/Icons";
+import StatsLoader from "./loaders/StatsLoader";
 
 type DataType = { items: ChannelType[] };
 
@@ -27,16 +27,21 @@ const getChannelAPI = async (id: string) => {
 function ChannelStats() {
   const [channel, setChannel] = useState<ChannelType>();
   const [searchParams] = useURLSearchParams();
+  const [isLoading, setIsLoading] = useState(true);
 
   const get = async (id: string) => {
+    setIsLoading(true);
     await getChannelAPI(id).then((d) => {
       setChannel(d[0]);
+      setIsLoading(false);
     });
   };
 
   useEffect(() => {
     get(searchParams.c);
   }, [searchParams.c]);
+
+  if (isLoading) return <StatsLoader />;
   if (!channel) return <></>;
 
   return (

@@ -23,7 +23,10 @@
   grid-area: banner;
   width: var(--banner-width);
   height: 14.8vh;
-  box-shadow: 0px 2px 15px -3px rgba(var(--foreground-rgb), 0.1);
+  box-shadow: 0px 2px 8px -3px rgba(var(--foreground-rgb), 0.1);
+  animation: var(--global-skeletal-pulsing-animation)
+    var(--global-skeletal-pulsing-duration)
+    var(--global-skeletal-pulsing-animation-config);
 }
 
 .channel > .channel_banner > img {
@@ -36,7 +39,10 @@
   grid-area: icon;
   width: var(--icon-size);
   height: var(--icon-size);
-  box-shadow: 0px 2px 15px -3px rgba(var(--foreground-rgb), 0.1);
+  box-shadow: 0px 2px 8px -3px rgba(var(--foreground-rgb), 0.1);
+  animation: var(--global-skeletal-pulsing-animation)
+    var(--global-skeletal-pulsing-duration)
+    var(--global-skeletal-pulsing-animation-config);
 }
 
 .channel > h1 {

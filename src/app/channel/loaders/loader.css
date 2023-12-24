@@ -1,0 +1,87 @@
+.channel_banner_loader,
+.channel_icon_loader {
+  animation: var(--global-skeletal-pulsing-animation)
+    var(--global-skeletal-pulsing-duration)
+    var(--global-skeletal-pulsing-animation-config);
+}
+
+.channel_action_loader {
+  @apply cursor-progress;
+
+  animation: var(--global-loading-pulsing-animation)
+    var(--global-skeletal-pulsing-duration)
+    var(--global-skeletal-pulsing-animation-config);
+}
+
+.channel_loader > h1 {
+  @apply rounded-md;
+
+  height: 2rem;
+  width: 80%;
+  animation: var(--global-skeletal-pulsing-animation)
+    var(--global-skeletal-pulsing-duration)
+    var(--global-skeletal-pulsing-animation-config);
+}
+
+.main_loader {
+  @apply grid gap-x-4 gap-y-10;
+
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.stat_card_loader {
+  --icon-size: 3rem;
+
+  @apply px-2 py-4 grid gap-x-4 gap-y-2 rounded-lg;
+
+  width: 100%;
+  background: rgba(var(--foreground-rgb), 0.1);
+  grid-template-columns: var(--icon-size) auto;
+  animation: var(--global-loading-pulsing-animation)
+    var(--global-skeletal-pulsing-duration)
+    var(--global-skeletal-pulsing-animation-config);
+}
+.stat_card_loader:last-of-type {
+  margin: 0;
+}
+.stat_card_loader > .stat_title_loader {
+  @apply text-lg font-light;
+}
+.stat_card_loader > .stat_value_loader {
+  @apply text-xl font-semibold;
+}
+.stat_card_loader > svg {
+  @apply justify-self-center self-center;
+
+  color: rgba(var(--background-rgb), 1);
+  grid-row: 1/3;
+  height: var(--icon-size);
+  width: var(--icon-size);
+}
+
+.description_loader {
+  grid-column: 1/-1;
+  display: block;
+  width: 100%;
+  animation: var(--global-loading-pulsing-animation)
+    var(--global-skeletal-pulsing-duration)
+    var(--global-skeletal-pulsing-animation-config);
+}
+.description_loader > .description_title_loader {
+  @apply text-xl font-semibold mb-4;
+}
+.description_loader > .description_value_loader {
+  @apply text-base px-8 py-6 rounded-lg;
+
+  width: 60%;
+  background: rgba(var(--foreground-rgb), 0.1);
+}
+
+@media screen and (width <=600px) {
+  .main_loader {
+    @apply flex flex-col gap-y-4;
+  }
+  .description_loader > .description_value_loader {
+    width: 100%;
+  }
+}
