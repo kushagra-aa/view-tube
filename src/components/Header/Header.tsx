@@ -2,6 +2,7 @@ import Image from "next/image";
 import SearchBox from "./SearchBox/SearchBox";
 import { BellIcon, VideoCameraIcon } from "../Icons";
 import "./header.css";
+import Link from "next/link";
 
 function Header() {
   return (
@@ -22,9 +23,9 @@ function Header() {
         <button title="Notifications">
           <BellIcon />
         </button>
-        <div title="User" className="user_icon">
+        <Link href={"/history"} title="Watch History" className="user_icon">
           <Image src="/Shape=Round.png" alt="user" fill sizes="100%" />
-        </div>
+        </Link>
       </div>
     </header>
   );

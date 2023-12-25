@@ -33,7 +33,9 @@ export default function Home() {
   return (
     <main className={styles.main}>
       {isLoading
-        ? [1, 2, 3, 4, 5, 6].map((i) => <VideoCardLoader type="big" key={i} />)
+        ? [1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => (
+            <VideoCardLoader type="big" key={i} />
+          ))
         : null}
       {videos?.map((v) => (
         <VideoCard key={v.id.videoId} size="big" video={v} />
