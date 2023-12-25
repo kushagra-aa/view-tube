@@ -14,6 +14,8 @@ import Image from "next/image";
 import { CommentIcon, LikeIcon, ViewIcon } from "@/components/Icons";
 import VideoCardLoader from "@/components/VideoCard/VideoCardLoader";
 import VideoLoader from "./VideoLoader";
+import useLocalStorage from "@/hooks/useLocalStorage";
+import addHistory from "@/helpers/addHistory";
 
 type VideoDetailsType = VideoType & VideoStatsType;
 type DataType = { items: VideoDetailsType[] };
@@ -48,6 +50,7 @@ function Watch() {
   const [isLoading, setIsLoading] = useState(true);
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
   const [searchParams] = useURLSearchParams();
+  const { get: getLocalStorage, set: setLocalStorage } = useLocalStorage();
 
   const getChannel = async (id: string) => {
     await getChannelAPI(id).then((d) => {
@@ -69,7 +72,11 @@ function Watch() {
     get(searchParams.v);
   }, [searchParams.v]);
   useEffect(() => {
-    if (video) getChannel(video.snippet.channelId);
+    if (video) {
+      getChannel(video.snippet.channelId);
+      setLocalStorage("history", addHistory(getLocalStorage("history"), video));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [video]);
 
   if (!video && isLoading)

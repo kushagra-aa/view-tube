@@ -1,6 +1,6 @@
 import styles from "./page.module.css";
-function Login() {
+function History() {
   return <div className={styles.main}>Login</div>;
 }
 
-export default Login;
+export default History;
