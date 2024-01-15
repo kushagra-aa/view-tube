@@ -21,11 +21,23 @@ Built with 🤍 For You!
 
 ### Home Page
 
+![image](https://github.com/kushagra-aa/view-tube/assets/68841296/743eaf39-57a9-45d3-a72d-68f3f5dbdd10)
+
 ### Search Results Page
+
+![image](https://github.com/kushagra-aa/view-tube/assets/68841296/caee7d62-703f-4cfe-b7ca-dae20aac010a)
 
 ### Channel Page
 
+![image](https://github.com/kushagra-aa/view-tube/assets/68841296/bf5a409d-b2ad-4410-9646-f34af988d4c7)
+
 ### Watch Video Page
+
+![image](https://github.com/kushagra-aa/view-tube/assets/68841296/a27114db-95e4-43ae-a0aa-d59abfc050e6)
+
+### User Watch History Page
+
+![image](https://github.com/kushagra-aa/view-tube/assets/68841296/0e604be9-e1ec-4f63-bb46-47e49a029ccb)
 
 ## Run Locally
 
