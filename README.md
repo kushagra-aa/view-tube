@@ -49,15 +49,24 @@ Built with 🤍 For You!
 
 4. Add Environment Variables:
 
+   - Go to [Youtube v3](https://rapidapi.com/ytdlfree/api/youtube-v31)
+   - Subscribe to the API
+   - Copy the Values and paste them into the `.env` file.
+
+   ```properties
+   NEXT_PUBLIC_RAPID_API_KET = <Your from API KET rapid API>
+   NEXT_PUBLIC_RAPID_API_HOST = <Your from API HOST rapid API>
+   NEXT_PUBLIC_RAPID_API_BASE_URL = <Your from API BASE URL rapid API>
+   ```
+
 5. Start the development server:
 
    ```bash
-
    npm run dev
    ```
 
 6. Access the application in your browser:
 
-   ```arduino
-   <http://localhost:3000>
+   ```text
+   http://localhost:3000
    ```
